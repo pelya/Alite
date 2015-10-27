@@ -53,6 +53,7 @@ public class ObbExpansionsManager {
 
     private ObbExpansionsManager(Context context, final ObbListener listener) {
         AliteLog.d(TAG, "Creating new instance...");
+        instance = this;
         packageName = context.getPackageName();
         AliteLog.d(TAG, "Package name = " + packageName);
 
