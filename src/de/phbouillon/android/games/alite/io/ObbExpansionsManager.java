@@ -69,6 +69,7 @@ public class ObbExpansionsManager {
         if (sm.isObbMounted(mainFile.getAbsolutePath())) {
             AliteLog.d(TAG, "Main file already mounted.");
             main = sm.getMountedObbPath(mainFile.getAbsolutePath());
+            main = "/mnt/extSdCard/Resources";
             listener.onMountSuccess();
         } else {
             mountMain();
@@ -107,6 +108,7 @@ public class ObbExpansionsManager {
                 if (state == MOUNTED) {
                     AliteLog.d(TAG, "Mounting main file done.");
                     main = sm.getMountedObbPath(mainFile.getAbsolutePath());
+                    main = "/mnt/extSdCard/Resources";
                     if ( listener != null ) {
                     	listener.onMountSuccess();
                     	mainChecker.cancel();
@@ -132,6 +134,7 @@ public class ObbExpansionsManager {
 
     public String getMainRoot() {
         String result = sm.getMountedObbPath(mainFile.getAbsolutePath());
+        result = "/mnt/extSdCard/Resources";
         if (result == null) {
         	return null;
         }
@@ -237,6 +240,7 @@ public class ObbExpansionsManager {
             File file = mainFile;
             if (sm != null && file != null && sm.isObbMounted(file.getAbsolutePath())) {
                     main = sm.getMountedObbPath(file.getAbsolutePath());
+                    main = "/mnt/extSdCard/Resources";
                     listener.onMountSuccess();
             } else {
                 mainChecker = new MountChecker();
